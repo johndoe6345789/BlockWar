@@ -1339,13 +1339,15 @@ class TestMapGeneration(unittest.TestCase):
 
 #### 5. Quick Start: Setting Up Testing
 
+**Note**: This section describes the planned development environment setup. These files and directories will be created during project implementation.
+
 **Development Environment Setup:**
 ```bash
 # Clone repository
 git clone <repository-url>
 cd BlockWar
 
-# Install Python dependencies
+# Install Python dependencies (files to be created)
 pip install -r requirements.txt
 pip install -r requirements-test.txt
 
@@ -1356,6 +1358,7 @@ pytest tests/unit/ -v
 python scripts/generate_all_content.py
 
 # Run UE5 automation tests (requires UE5 editor)
+# Replace <project-name> with actual UE5 project name (e.g., BlockWar)
 UnrealEditor.exe <project-name>.uproject -ExecCmds="Automation RunTests;Quit"
 ```
 
@@ -1363,7 +1366,7 @@ UnrealEditor.exe <project-name>.uproject -ExecCmds="Automation RunTests;Quit"
 - Unit tests run on every commit (GitHub Actions)
 - Integration tests run on pull requests
 - Full UE5 build tests run on main branch merges
-- See `.github/workflows/ci.yml` for complete pipeline
+- See `.github/workflows/ci.yml` for complete pipeline (to be implemented)
 
 **Test-Driven Development Workflow:**
 1. Write Python unit test for generation logic
