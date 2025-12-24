@@ -1,5 +1,13 @@
 # BlockWar Design Brief
 
+**Quick Navigation:**
+- [Procedural Generation Strategy](#procedural-generation-strategy) - **Key Technical Decision**: UE5-native procedural generation with unit testing
+- [Project Overview](#project-overview) - Game concept and goals
+- [Core Game Concept](#core-game-concept) - Gameplay mechanics
+- [CI/CD Pipeline](#cicd-pipeline) - Automated testing and deployment
+
+---
+
 ## Project Naming Recommendations
 
 ### Current Name Analysis
