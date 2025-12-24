@@ -8,3 +8,25 @@ Built in Unreal Engine 5, inspired by classic community mods.
 
 ## Documentation
 See [DESIGN_BRIEF.md](DESIGN_BRIEF.md) for comprehensive game design documentation.
+
+## GitHub Actions diagnostics
+This repository ships with a lightweight "workflow doctor" to help ChatGPT/Codex-style agents quickly understand and triage GitHub Actions issues without running the workflows themselves.
+
+### Setup
+1. Install the dependency:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Usage
+- Inspect the repository from its root:
+  ```bash
+  python tools/workflow_doctor.py
+  ```
+
+- Only print actionable diagnostics (skip verbose summaries):
+  ```bash
+  python tools/workflow_doctor.py --quiet
+  ```
+
+When no workflow files are present, the tool reports that the `.github/workflows` directory is empty so that agents don't waste time chasing nonexistent CI definitions.
