@@ -1342,7 +1342,7 @@ class TestMapGeneration(unittest.TestCase):
 **Development Environment Setup:**
 ```bash
 # Clone repository
-git clone https://github.com/yourorg/BlockWar.git
+git clone <repository-url>
 cd BlockWar
 
 # Install Python dependencies
@@ -1356,7 +1356,7 @@ pytest tests/unit/ -v
 python scripts/generate_all_content.py
 
 # Run UE5 automation tests (requires UE5 editor)
-UnrealEditor.exe BlockWar.uproject -ExecCmds="Automation RunTests;Quit"
+UnrealEditor.exe <project-name>.uproject -ExecCmds="Automation RunTests;Quit"
 ```
 
 **Running Tests in CI/CD:**
