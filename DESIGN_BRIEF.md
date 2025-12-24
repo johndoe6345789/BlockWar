@@ -3,7 +3,7 @@
 ## Project Naming Recommendations
 
 ### Current Name Analysis
-**UnrealForts** is functional but has some limitations:
+**BlockWar** is functional but has some limitations:
 - Heavily ties the project to Unreal Engine (what if we port later?)
 - Generic and not particularly memorable
 - Doesn't convey the unique build-combat dynamic
@@ -95,7 +95,7 @@
 
 ## Project Overview
 
-**Project Name:** BlockWar (formerly UnrealForts)  
+**Project Name:** BlockWar (formerly BlockWar)  
 **Type:** Original Game Concept  
 **Target Engine:** Unreal Engine 5  
 **Original Inspiration:** Classic Half-Life 2 community mods featuring fort building and combat  
@@ -1426,7 +1426,7 @@ tests/
 10. Repeat cycle
 ```
 
-This procedural-first approach ensures UnrealForts is built on a solid, testable foundation that can evolve and scale efficiently.
+This procedural-first approach ensures BlockWar is built on a solid, testable foundation that can evolve and scale efficiently.
 
 ---
 
@@ -1434,7 +1434,7 @@ This procedural-first approach ensures UnrealForts is built on a solid, testable
 
 ### Overview
 
-A robust CI/CD (Continuous Integration/Continuous Deployment) pipeline is essential for UnrealForts development, ensuring code quality, catching regressions early, and automating the build and deployment process. The pipeline will handle code validation, automated testing, builds, and deployment to various environments.
+A robust CI/CD (Continuous Integration/Continuous Deployment) pipeline is essential for BlockWar development, ensuring code quality, catching regressions early, and automating the build and deployment process. The pipeline will handle code validation, automated testing, builds, and deployment to various environments.
 
 ### Pipeline Architecture
 
@@ -1779,7 +1779,7 @@ jobs:
 **Runner Configuration:**
 ```bash
 # Install runner as a service
-./config.cmd --url https://github.com/yourorg/UnrealForts --token YOUR_TOKEN --labels windows,unreal-engine --unattended
+./config.cmd --url https://github.com/yourorg/BlockWar --token YOUR_TOKEN --labels windows,unreal-engine --unattended
 ./run.cmd
 ```
 
