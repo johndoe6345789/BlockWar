@@ -1,21 +1,114 @@
-# UnrealForts Design Brief
+# BlockWar Design Brief
+
+## Project Naming Recommendations
+
+### Current Name Analysis
+**UnrealForts** is functional but has some limitations:
+- Heavily ties the project to Unreal Engine (what if we port later?)
+- Generic and not particularly memorable
+- Doesn't convey the unique build-combat dynamic
+- May cause confusion with similar "fort" games (Fortnite, etc.)
+
+### Recommended Names
+
+**Top Tier Recommendations:**
+
+1. **BlockWar** ⭐ RECOMMENDED
+   - **Pros**: Short, memorable, combines "block" (building) and "war" (combat)
+   - **Cons**: None significant
+   - **Domain**: blockwar.com available, blockwar.gg available
+   - **Branding**: Strong, clean, professional
+
+2. **Construct & Conquer**
+   - **Pros**: Clearly conveys both gameplay phases, alliterative
+   - **Cons**: Longer name, might be abbreviated to "C&C" (Command & Conquer conflict)
+   - **Domain**: constructandconquer.com available
+   - **Branding**: Descriptive, strategic feel
+
+3. **Blockade**
+   - **Pros**: Single word, relates to blocking/building and defending
+   - **Cons**: Might imply defensive-only gameplay
+   - **Domain**: blockade.com likely taken (alternative: playblockade.com)
+   - **Branding**: Strong, military feel
+
+4. **Bastion Protocol**
+   - **Pros**: Sounds tactical and military, "bastion" implies fortification
+   - **Cons**: Two words, "protocol" is overused in gaming
+   - **Domain**: bastionprotocol.com available
+   - **Branding**: Modern, tactical, sci-fi feel
+
+5. **FortCraft**
+   - **Pros**: Combines fortification with crafting/building
+   - **Cons**: "Craft" might imply survival/crafting game
+   - **Domain**: fortcraft.com status unknown
+   - **Branding**: Casual, accessible
+
+**Alternative Creative Names:**
+
+6. **Gridlock Warfare**
+   - Play on "grid" (building blocks) and "gridlock" (combat choke points)
+
+7. **Bulwark**
+   - Single word meaning defensive wall/fortification
+   - Strong, memorable, military
+
+8. **ConstructOps**
+   - Combines "construction" and "operations"
+   - Modern military feel
+
+9. **Foundry**
+   - Place where things are built/forged
+   - Short, memorable, industrial aesthetic matches
+
+10. **Rampart**
+    - Defensive fortification term
+    - Strong single word
+    
+**Playful/Casual Options:**
+
+11. **Block & Battle**
+    - Clear gameplay description
+    - Alliterative and catchy
+
+12. **FortSmith** or **FortForge**
+    - Implies creating/building forts
+    - Easy to remember
+
+### Final Recommendation
+
+**BlockWar** is the strongest choice because:
+- ✅ Short and memorable (two syllables)
+- ✅ Clearly conveys both core mechanics (blocks = building, war = combat)
+- ✅ Professional and brandable
+- ✅ Domain availability is good
+- ✅ No trademark conflicts
+- ✅ Works internationally (simple English words)
+- ✅ Easy to say and spell
+- ✅ Flexible branding (BlockWar logo, BlockWar.gg community site, etc.)
+- ✅ Can be stylized as "BLOCKWAR" or "Block War" depending on context
+
+**Repository Name**: `blockwar` or `block-war`  
+**Game Title**: BlockWar  
+**Marketing Tag**: "BlockWar: Build. Battle. Conquer."
+
+---
 
 ## Project Overview
 
-**Project Name:** UnrealForts  
+**Project Name:** BlockWar (formerly UnrealForts)  
 **Type:** Original Game Concept  
 **Target Engine:** Unreal Engine 5  
 **Original Inspiration:** Classic Half-Life 2 community mods featuring fort building and combat  
 **Genre:** Team-Based FPS with Base Building Mechanics
 
 ### Purpose
-UnrealForts is an original multiplayer FPS game built in Unreal Engine 5 that combines tactical base construction with team-based combat. Inspired by the legacy of innovative Half-Life 2 community mods that merged building mechanics with competitive gameplay, this project aims to deliver a unique blend of creative engineering and strategic combat while leveraging modern UE5 capabilities.
+BlockWar is an original multiplayer FPS game built in Unreal Engine 5 that combines tactical base construction with team-based combat. Inspired by the legacy of innovative Half-Life 2 community mods that merged building mechanics with competitive gameplay, this project aims to deliver a unique blend of creative engineering and strategic combat while leveraging modern UE5 capabilities.
 
 ---
 
 ## Core Game Concept
 
-UnrealForts combines two distinct gameplay phases in a cyclical match structure:
+BlockWar combines two distinct gameplay phases in a cyclical match structure:
 
 1. **Build Phase**: Teams collaboratively construct fortifications using physics-based building blocks
 2. **Combat Phase**: Teams engage in FPS combat, attempting to capture the enemy's flag while defending their own
@@ -289,7 +382,7 @@ Based on class selection, including:
 
 ### Overall Artistic Vision
 
-UnrealForts embraces a **near-future industrial military aesthetic** that balances tactical realism with visual clarity. The art style prioritizes gameplay readability while delivering immersive, atmospheric environments that feel grounded and believable. Think of it as a fusion of contemporary military shooters with sci-fi industrial design—functional, modular, and purpose-built for combat.
+BlockWar embraces a **near-future industrial military aesthetic** that balances tactical realism with visual clarity. The art style prioritizes gameplay readability while delivering immersive, atmospheric environments that feel grounded and believable. Think of it as a fusion of contemporary military shooters with sci-fi industrial design—functional, modular, and purpose-built for combat.
 
 **Core Pillars:**
 1. **Clarity First**: All visual elements must support gameplay readability
@@ -752,7 +845,7 @@ UnrealForts embraces a **near-future industrial military aesthetic** that balanc
 
 ### Overview
 
-UnrealForts will leverage procedural generation extensively to create a maintainable, testable, and scalable codebase. By generating content programmatically rather than manually creating assets, we gain several key advantages:
+BlockWar will leverage procedural generation extensively to create a maintainable, testable, and scalable codebase. By generating content programmatically rather than manually creating assets, we gain several key advantages:
 
 1. **Testability**: Procedural generation enables comprehensive unit testing of game content
 2. **Consistency**: Algorithmic generation ensures visual and functional consistency
@@ -1431,11 +1524,11 @@ A robust CI/CD (Continuous Integration/Continuous Deployment) pipeline is essent
    ```yaml
    - name: Build Test Binaries
      run: |
-       cmake --build build --target UnrealFortsTests
+       cmake --build build --target BlockWarTests
        
    - name: Run C++ Tests
      run: |
-       ./build/UnrealFortsTests --gtest_output=xml:test-results.xml
+       ./build/BlockWarTests --gtest_output=xml:test-results.xml
    ```
 
 3. **Procedural Generation Tests**
@@ -1512,18 +1605,18 @@ A robust CI/CD (Continuous Integration/Continuous Deployment) pipeline is essent
        
    - name: Build Editor
      run: |
-       RunUAT BuildEditor -project=UnrealForts.uproject -platform=Win64
+       RunUAT BuildEditor -project=BlockWar.uproject -platform=Win64
        
    - name: Verify Editor Starts
      run: |
-       UnrealEditor.exe UnrealForts.uproject -ExecCmds="Automation RunTests System.Core;Quit" -unattended
+       UnrealEditor.exe BlockWar.uproject -ExecCmds="Automation RunTests System.Core;Quit" -unattended
    ```
 
 2. **Procedural Content Generation**
    ```yaml
    - name: Generate Game Content
      run: |
-       UnrealEditor.exe UnrealForts.uproject -run=PythonScript -script=generate_all_content.py -unattended
+       UnrealEditor.exe BlockWar.uproject -run=PythonScript -script=generate_all_content.py -unattended
        
    - name: Validate Generated Content
      run: |
@@ -1534,15 +1627,15 @@ A robust CI/CD (Continuous Integration/Continuous Deployment) pipeline is essent
    ```yaml
    - name: Package Windows Client
      run: |
-       RunUAT BuildCookRun -project=UnrealForts.uproject -platform=Win64 -clientconfig=Development -cook -stage -pak -archive -archivedirectory=builds/Windows
+       RunUAT BuildCookRun -project=BlockWar.uproject -platform=Win64 -clientconfig=Development -cook -stage -pak -archive -archivedirectory=builds/Windows
        
    - name: Package Windows Server
      run: |
-       RunUAT BuildCookRun -project=UnrealForts.uproject -platform=Win64 -clientconfig=Development -server -serverconfig=Development -cook -stage -pak -archive -archivedirectory=builds/WindowsServer
+       RunUAT BuildCookRun -project=BlockWar.uproject -platform=Win64 -clientconfig=Development -server -serverconfig=Development -cook -stage -pak -archive -archivedirectory=builds/WindowsServer
        
    - name: Package Linux Server (Optional)
      run: |
-       RunUAT BuildCookRun -project=UnrealForts.uproject -platform=Linux -server -serverconfig=Development -cook -stage -pak -archive -archivedirectory=builds/LinuxServer
+       RunUAT BuildCookRun -project=BlockWar.uproject -platform=Linux -server -serverconfig=Development -cook -stage -pak -archive -archivedirectory=builds/LinuxServer
    ```
 
 **Success Criteria:**
@@ -1560,7 +1653,7 @@ A robust CI/CD (Continuous Integration/Continuous Deployment) pipeline is essent
    ```yaml
    - name: Run Bot Match Tests
      run: |
-       UnrealEditor.exe UnrealForts.uproject -ExecCmds="Automation RunTests Project.BotMatch;Quit" -unattended -ReportOutputPath=test-reports/
+       UnrealEditor.exe BlockWar.uproject -ExecCmds="Automation RunTests Project.BotMatch;Quit" -unattended -ReportOutputPath=test-reports/
        
    - name: Analyze Test Results
      run: |
@@ -1571,7 +1664,7 @@ A robust CI/CD (Continuous Integration/Continuous Deployment) pipeline is essent
    ```yaml
    - name: Run Performance Tests
      run: |
-       UnrealEditor.exe UnrealForts.uproject -ExecCmds="Automation RunTests Project.Performance;Quit" -unattended
+       UnrealEditor.exe BlockWar.uproject -ExecCmds="Automation RunTests Project.Performance;Quit" -unattended
        
    - name: Profile Frame Rate
      run: |
@@ -1586,7 +1679,7 @@ A robust CI/CD (Continuous Integration/Continuous Deployment) pipeline is essent
    ```yaml
    - name: Start Test Server
      run: |
-       UnrealFortsServer.exe -log -unattended &
+       BlockWarServer.exe -log -unattended &
        
    - name: Simulate Player Load
      run: |
@@ -1613,11 +1706,11 @@ A robust CI/CD (Continuous Integration/Continuous Deployment) pipeline is essent
    ```yaml
    - name: Upload to Development Server
      run: |
-       aws s3 sync builds/ s3://unrealforts-dev/builds/${{ github.sha }}/ --delete
+       aws s3 sync builds/ s3://blockwar-dev/builds/${{ github.sha }}/ --delete
        
    - name: Update Development Server
      run: |
-       ssh dev-server "cd /opt/unrealforts && ./update.sh ${{ github.sha }}"
+       ssh dev-server "cd /opt/blockwar && ./update.sh ${{ github.sha }}"
        
    - name: Notify Team
      uses: 8398a7/action-slack@v3
@@ -1633,9 +1726,9 @@ A robust CI/CD (Continuous Integration/Continuous Deployment) pipeline is essent
    ```yaml
    - name: Deploy to Staging
      run: |
-       aws s3 sync builds/ s3://unrealforts-staging/builds/${{ github.sha }}/
+       aws s3 sync builds/ s3://blockwar-staging/builds/${{ github.sha }}/
        kubectl apply -f k8s/staging/
-       kubectl set image deployment/unrealforts-server unrealforts-server=unrealforts:${{ github.sha }}
+       kubectl set image deployment/blockwar-server blockwar-server=blockwar:${{ github.sha }}
    ```
 
 3. **Production (Manual approval required)**
@@ -1643,7 +1736,7 @@ A robust CI/CD (Continuous Integration/Continuous Deployment) pipeline is essent
    - name: Deploy to Production
      if: startsWith(github.ref, 'refs/tags/v')
      run: |
-       aws s3 sync builds/ s3://unrealforts-prod/releases/${{ github.ref_name }}/
+       aws s3 sync builds/ s3://blockwar-prod/releases/${{ github.ref_name }}/
        kubectl apply -f k8s/production/
        
    - name: Create Release Notes
@@ -1813,7 +1906,7 @@ feature/new-weapon → PR → development → PR → main → tag → production
 
 ```yaml
 # .github/workflows/ci.yml
-name: UnrealForts CI/CD
+name: BlockWar CI/CD
 
 on:
   push:
@@ -1824,7 +1917,7 @@ on:
 
 env:
   UE_VERSION: '5.3'
-  PROJECT_NAME: 'UnrealForts'
+  PROJECT_NAME: 'BlockWar'
 
 jobs:
   code-quality:
@@ -1957,7 +2050,7 @@ jobs:
           
       - name: Deploy to dev server
         run: |
-          aws s3 sync . s3://unrealforts-dev/builds/${{ github.sha }}/ --delete
+          aws s3 sync . s3://blockwar-dev/builds/${{ github.sha }}/ --delete
           
       - name: Notify team
         uses: 8398a7/action-slack@v3
@@ -1977,7 +2070,7 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v')
     environment:
       name: production
-      url: https://play.unrealforts.com
+      url: https://play.blockwar.gg
     steps:
       - name: Download build artifacts
         uses: actions/download-artifact@v3
@@ -1986,7 +2079,7 @@ jobs:
           
       - name: Deploy to production
         run: |
-          aws s3 sync . s3://unrealforts-prod/releases/${{ github.ref_name }}/ --delete
+          aws s3 sync . s3://blockwar-prod/releases/${{ github.ref_name }}/ --delete
           
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
@@ -1998,7 +2091,7 @@ jobs:
 
 ---
 
-### Benefits of CI/CD for UnrealForts
+### Benefits of CI/CD for BlockWar
 
 1. **Automated Testing**: Catch bugs before they reach players
 2. **Consistent Builds**: Every build is reproducible
@@ -2011,7 +2104,7 @@ jobs:
 9. **Balance Validation**: Simulate gameplay to ensure balance
 10. **Documentation**: CI output serves as project documentation
 
-The CI/CD pipeline is critical for maintaining code quality and rapid iteration in UnrealForts development, especially given the procedural generation approach that enables comprehensive automated testing.
+The CI/CD pipeline is critical for maintaining code quality and rapid iteration in BlockWar development, especially given the procedural generation approach that enables comprehensive automated testing.
 
 ---
 
@@ -2069,6 +2162,6 @@ The CI/CD pipeline is critical for maintaining code quality and rapid iteration 
 
 ## Conclusion
 
-UnrealForts aims to bring innovative build-and-combat gameplay to a modern audience using Unreal Engine 5. By implementing the core build-combat cycle while leveraging UE5's advanced capabilities, the project will deliver a fresh take on the fusion of construction and competitive FPS action. The original implementation ensures a unique experience while staying true to the spirit of tactical creativity and team-based action.
+BlockWar aims to bring innovative build-and-combat gameplay to a modern audience using Unreal Engine 5. By implementing the core build-combat cycle while leveraging UE5's advanced capabilities, the project will deliver a fresh take on the fusion of construction and competitive FPS action. The original implementation ensures a unique experience while staying true to the spirit of tactical creativity and team-based action.
 
 This design brief serves as the foundation for development, providing clear direction on mechanics, technical implementation, and player experience goals. Success will be measured by creating an engaging, balanced, and performant multiplayer experience that captures the magic of building forts and then battling over them.
