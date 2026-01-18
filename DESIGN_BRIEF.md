@@ -1,5 +1,13 @@
 # BlockWar Design Brief
 
+**Quick Navigation:**
+- [Procedural Generation Strategy](#procedural-generation-strategy) - **Key Technical Decision**: UE5-native procedural generation with unit testing
+- [Project Overview](#project-overview) - Game concept and goals
+- [Core Game Concept](#core-game-concept) - Gameplay mechanics
+- [CI/CD Pipeline](#cicd-pipeline) - Automated testing and deployment
+
+---
+
 ## Project Naming Recommendations
 
 ### Current Name Analysis
@@ -843,6 +851,17 @@ BlockWar embraces a **near-future industrial military aesthetic** that balances 
 
 ## Procedural Generation Strategy
 
+### Decision: UE5-Native Procedural Generation with Unit Testing
+
+**Confirmed Approach:** BlockWar will implement procedural generation **directly within Unreal Engine 5** using its native tools (PCG Framework, Blueprints, C++, Python, and Geometry Script). This approach enables comprehensive unit testing while maintaining tight integration with the engine.
+
+**Key Benefits:**
+- ✅ **Unit testable**: Python scripts and C++ code can be unit tested outside the editor
+- ✅ **Editor integration**: Content generation happens in UE5 using native tools
+- ✅ **Performance**: Generated content uses UE5's optimized systems
+- ✅ **Maintainable**: Changes to generation logic are automatically tested via CI/CD
+- ✅ **Flexible**: Mix of editor-time and runtime generation as needed
+
 ### Overview
 
 BlockWar will leverage procedural generation extensively to create a maintainable, testable, and scalable codebase. By generating content programmatically rather than manually creating assets, we gain several key advantages:
@@ -1318,6 +1337,45 @@ class TestMapGeneration(unittest.TestCase):
 - Localization strings
 - Documentation generation
 
+#### 5. Quick Start: Setting Up Testing
+
+**Note**: This section describes the planned development environment setup. These files and directories will be created during project implementation.
+
+**Development Environment Setup:**
+```bash
+# Clone repository
+git clone <repository-url>
+cd BlockWar
+
+# Install Python dependencies (files to be created)
+pip install -r requirements.txt
+pip install -r requirements-test.txt
+
+# Run unit tests (no UE5 required)
+pytest tests/unit/ -v
+
+# Generate procedural content (requires UE5)
+python scripts/generate_all_content.py
+
+# Run UE5 automation tests (requires UE5 editor)
+# Replace <project-name> with actual UE5 project name (e.g., BlockWar)
+UnrealEditor.exe <project-name>.uproject -ExecCmds="Automation RunTests;Quit"
+```
+
+**Running Tests in CI/CD:**
+- Unit tests run on every commit (GitHub Actions)
+- Integration tests run on pull requests
+- Full UE5 build tests run on main branch merges
+- See `.github/workflows/ci.yml` for complete pipeline (to be implemented)
+
+**Test-Driven Development Workflow:**
+1. Write Python unit test for generation logic
+2. Implement generation algorithm in Python
+3. Run `pytest` to verify (fast, no UE5 needed)
+4. Integrate with UE5 APIs
+5. Run UE5 automation tests to verify integration
+6. Commit and push (CI/CD runs full test suite)
+
 ---
 
 ### Testing Strategy
@@ -1394,6 +1452,41 @@ tests/
 - Validate balance changes
 - Ensure performance targets
 - Document expected behavior
+
+#### How UE5 Procedural Generation Enables Unit Testing
+
+**Testing Architecture:**
+
+1. **Python Scripts**: Core generation logic lives in Python scripts that can be tested independently
+   ```python
+   # scripts/generators/block_generator.py - Testable outside UE5
+   def generate_block_parameters(block_type, size):
+       # Pure Python logic, fully unit testable
+       return BlockParams(...)
+   ```
+
+2. **UE5 Integration**: Python scripts call UE5 APIs to create actual assets
+   ```python
+   # Only executed in UE5 editor
+   import unreal
+   block_params = generate_block_parameters('cube', 1.0)  # Tested
+   unreal.EditorAssetLibrary.create_asset(...)  # UE5 integration
+   ```
+
+3. **C++ Systems**: Game logic in C++ with dedicated test targets
+   ```cpp
+   // Can be compiled and tested separately from editor
+   class BlockPhysicsSystem {
+       bool IsStable(const BlockConfig& config);  // Unit testable
+   };
+   ```
+
+**This approach provides:**
+- ✅ Fast unit tests (Python/C++) without launching UE5 editor
+- ✅ Integration tests within UE5 automation framework
+- ✅ CI/CD pipeline compatibility
+- ✅ Code coverage metrics
+- ✅ Rapid iteration cycles
 
 ---
 
